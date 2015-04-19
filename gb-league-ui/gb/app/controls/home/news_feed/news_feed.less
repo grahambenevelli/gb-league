@@ -1,0 +1,62 @@
+@import url("/sg/base/main.less");
+
+@banner-width: 900px;
+@banner-height: 350px;
+
+#news-feed {
+	padding-top: 40px;
+
+	.newsfeed {
+		padding-top: 20px;
+		position: relative;
+
+		.newsfeed-container {
+			background-color: @dark;
+			color: @white;
+			height: @banner-height + 60px;
+			max-width: 90%;
+			overflow: hidden;
+			vertical-align: middle;
+			width: @banner-width + 100px;
+
+			.banner-box {
+				margin-top: 25px;
+				max-width: @banner-width;
+				overflow: hidden;
+				width: 90%;
+
+				.banner-container {
+					width: @banner-width * 4;
+
+					.hidden {
+						opacity: 0%;
+					}
+
+					.banner {
+						display: inline-block;
+						white-space: nowrap;
+
+						.title {
+							color: @dark;
+							font: impact;
+							font-size: 20px;
+							font-weight: bolder;
+							position: absolute;
+							top: 0px;
+						}
+
+						.crop {
+							height: @banner-height;
+							overflow: hidden;
+							width: @banner-width;
+
+							.image {
+								min-width: 100%;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

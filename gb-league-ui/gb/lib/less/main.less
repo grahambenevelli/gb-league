@@ -1,0 +1,77 @@
+@import url("variables");
+
+body {
+
+	background-color: @mainColorReversed;
+	margin: 0;
+	width: @mainWidth;
+	margin-left: auto;
+	margin-right: auto;
+
+}
+
+// forms
+
+.global-form {
+
+	padding: 5px;
+	height: 25x;
+	
+	.param-name {
+		float: left;
+	}
+	
+	.param-input {
+		float: right;
+		width: 150px;
+	}
+	
+	.error {
+		color: red;
+	}
+	
+	.clear {
+		clear: both;
+	}
+
+}
+
+// basic boxes
+
+.global-box {
+
+	color: @fontColorReversed;
+	font-family: 'helvetica';
+	font-weight:bold;
+	font-size: 12px;
+	
+	border-style:solid;
+	border-width:5px;
+
+}
+
+.global-box-solid {
+	
+	color: @fontColor;
+	font-family: 'helvetica';
+	font-size: 12px;
+	background-color: #303030;
+	padding: 5px;
+
+}
+
+.global-box-single {
+	
+	.global-box;
+
+	width: 100%;
+
+	position:absolute;
+	left:0; right:0;
+	top:0; bottom:0;
+	margin:auto;
+
+	max-width:100%;
+	max-height:100%;
+	overflow:auto;
+}

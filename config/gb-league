@@ -1,0 +1,12 @@
+server {
+	listen   80;
+	server_name devbox.gb.league.com;
+
+	location / {
+		root /vagrant/gb-leagueui/;
+	}
+
+	location /gb {
+		proxy_pass http://gb-leagueapi.dev:8080/;
+	}
+}

@@ -1,0 +1,27 @@
+apply plugin: 'war'
+apply plugin: 'jetty'
+apply plugin: 'eclipse-wtp'
+
+repositories {
+    mavenCentral()
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.9'
+}
+
+// TODO format these
+dependencies {
+    providedCompile 'javax.servlet:servlet-api:2.5'
+
+    compile 'org.springframework:spring-webmvc:3.2.5.RELEASE'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.2.3'
+    compile group: 'com.google.guava', name: 'guava', version: '12.0'
+    compile group: 'com.github.sps.mustache', name: 'mustache-spring-view', version: '1.0'
+
+    testCompile 'junit:junit:[4,)'
+    runtime 'javax.servlet:jstl:1.2'
+}
+
+/* Change context path (base url). otherwise defaults to name of project */
+jettyRun.contextPath = ''

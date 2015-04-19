@@ -1,0 +1,22 @@
+<form method="post" action="/gb/league" method="post">
+	{{#if serverError}}
+		<div class="error">{{serverError}}</div>
+	{{/if}}
+	{{#if leagueNameError}}
+		<div class="error">Last name cannot be blank</div>
+	{{/if}}
+	<div class="param">
+		<div class="param-name">League Name: </div><input class="param-input" type="text" name="leagueName">
+		<div class="clear"></div>
+	</div>
+	{{#if teamNameError}}
+		<div class="error">Last name cannot be blank</div>
+	{{/if}}
+	<div class="param">
+		<div class="param-name">Team Name: </div><input class="param-input" type="text" name="teamName">
+		<div class="clear"></div>
+	</div>
+	<div class="param">
+		<input class="signup-submit" type="button" value="Submit">
+	</div>
+</form>

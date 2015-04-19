@@ -1,0 +1,17 @@
+<div class="newsfeed">
+	<div class="newsfeed-container center">
+		<div class="banner-box center">
+			<div class="banner-container">
+				{{#feed}}
+					<div class="banner hidden">
+						<a class="title" href="#">{{titleCapitalized}}</a>
+						<div class="crop">
+							<img class="image center" src={{image}}/>
+						</div>
+						<div class="description">{{description}}</div>
+					</div>
+				{{/feed}}
+			</div>
+		</div>
+	</div>
+</div>

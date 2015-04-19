@@ -1,0 +1,29 @@
+@import url("/gb/lib/bower_components/bootstrap/dist/css/bootstrap.css");
+
+@black: black;
+@dark: #333333;
+@grey: #6E6568;
+@tan: #EAD3A8;
+@subtle-red: #a02b2f;
+@white: #FFFFFF;
+
+@nav-font: 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+.btn {
+	cursor: pointer;
+}
+
+.center {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.box-shadow(@hShadow, @vShadow, @bluf, @spread, @color) {
+	-webkit-box-shadow: @hShadow @vShadow @bluf @spread @color;
+	-moz-box-shadow: @hShadow @vShadow @bluf @spread @color;
+	box-shadow: @hShadow @vShadow @bluf @spread @color;
+}
+
+.right {
+	float: right;
+}

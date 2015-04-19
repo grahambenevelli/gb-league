@@ -1,0 +1,23 @@
+upstream league_api {
+    server gb-leagueapi.dev:8080;
+}
+
+server {
+    listen   80;
+    server_name devbox.gb.league.com;
+
+    # UI files, html and js
+    location /gb {
+        root /var/www/leagues/gb-league-ui/;
+    }
+
+    # Styling files, css or less
+    location /sg {
+        root /var/www/leagues/gb-league-ui/;
+    }
+
+    # Standard Java traffic
+    location / {
+        proxy_pass http://league_api;
+    }
+}

@@ -1,0 +1,40 @@
+<form method="post" action="/manager" method="post">
+	{{#if serverError}}
+		<div class="error">{{serverError}}</div>
+	{{/if}}
+	{{#if firstNameError}}
+		<div class="error">First name cannot be blank</div>
+	{{/if}}
+	<div class="param">
+		<div class="param-name">First Name: </div><input class="param-input" type="text" name="firstName">
+		<div class="clear"></div>
+	</div>
+	{{#if lastNameError}}
+		<div class="error">Last name cannot be blank</div>
+	{{/if}}
+	<div class="param">
+		<div class="param-name">Last Name: </div><input class="param-input" type="text" name="lastName">
+		<div class="clear"></div>
+	</div>
+	{{#if emailError}}
+		<div class="error">Not a valid e-mail address</div>
+	{{/if}}
+	<div class="param">
+		<div class="param-name">e-mail: </div><input class="param-input" type="email" name="email">
+		<div class="clear"></div>
+	</div>
+	{{#if passwordError}}
+		<div class="error">Passwords must match</div>
+	{{/if}}
+	<div class="param">
+		<div class="param-name">Password: </div><input class="param-input" type="text" name="password">
+		<div class="clear"></div>
+	</div>
+	<div class="param">
+		<div class="param-name">Verify Password: </div><input class="param-input" type="password" name="password-verify">
+		<div class="clear"></div>
+	</div>
+	<div class="param">
+		<input class="signup-submit" type="button" value="Submit">
+	</div>
+</form>

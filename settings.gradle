@@ -1,0 +1,10 @@
+rootProject.name = 'fantasyleague'
+
+include ':gb-league-app'
+include ':gb-league-ui'
+include ':gb-league-styleguide'
+
+project(':gb-league-app').projectDir = "$rootDir/gb-league-app" as File
+project(':gb-league-ui').projectDir = "$rootDir/gb" as File
+project(':gb-league-styleguide').projectDir = "$rootDir/gb-league-styleguide" as File
+

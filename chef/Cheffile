@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+#^syntax detection
+
+site 'http://community.opscode.com/api/v1'
+
+cookbook 'runit'
+cookbook 'mysql', :git => 'git@github.com:opscode-cookbooks/mysql.git'
+cookbook 'cassandra', :git => 'git@github.com:atrull/cassandra_priam_cookbook.git'
+cookbook 'nginx', :git => 'git://github.com/opscode-cookbooks/nginx.git'

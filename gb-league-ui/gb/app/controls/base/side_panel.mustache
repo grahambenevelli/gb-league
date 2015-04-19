@@ -1,0 +1,58 @@
+<div class="nav-container">
+	<div class="dropdown league-dropdown">
+		<button class="btn nav-option league-option dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+			Leagues
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu league-menu" role="menu" aria-labelledby="dropdownMenu1">
+			{{#leagues}}
+				<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="{{links.home}}">{{name}}</a>
+				</li>
+			{{/leagues}}
+			<li role="presentation" class="divider"></li>
+			<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Create League</a></li>
+		</ul>
+	</div>
+
+	<div class="nav-options">
+		<button type="button" class="btn btn-block nav-option">
+			<div class="home">
+				Home
+			</div>
+		</button>
+		<button type="button" class="btn btn-block nav-option">
+			<div class="team">
+				My Team
+			</div>
+		</button>
+		<button type="button" class="btn btn-block nav-option">
+			<div class="players">
+				Players
+			</div>
+		</button>
+		<button type="button" class="btn btn-block nav-option">
+			<div class="draft">
+				Draft
+			</div>
+		</button>
+	</div>
+	<div class="dropdown user-dropdown">
+		<button class="btn dropup nav-option user-option dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+			{{manager.firstName}} {{manager.lastName}}
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu league-menu user-menu" role="menu" aria-labelledby="dropdownMenu1">
+			<li role="presentation">
+				<a role="menuitem" tabindex="-1" href="{{manager.links.settings}}">Settings</a>
+			</li>
+			<li role="presentation">
+				<a role="menuitem" tabindex="-1" href="{{manager.links.profile}}">Profile</a>
+			</li>
+			<li role="presentation">
+				<a role="menuitem" tabindex="-1" href="{{manager.links.logout}}">Logout</a>
+			</li>
+		</ul>
+	</div>
+
+</div>
