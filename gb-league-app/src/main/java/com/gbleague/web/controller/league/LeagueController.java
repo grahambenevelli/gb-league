@@ -25,11 +25,14 @@ public class LeagueController {
 
 	// TODO /manager/{ID}/league/{ID} POST
 	// updateLeague
+	
+	// TODO /manager/{ID}/league/current
+	// getCurrentLeague
 
 	// TODO move to league controller
 	@RequestMapping(value="/")
 	@ResponseBody
-	public List<LeagueDTO> getLeagues(Long managerId) {
+	public List<LeagueDTO> getAllLeagues(long managerId) {
 		List<PojoLeague> leagues = Lists.newArrayList();
 		leagues.add(new PojoLeague(1, "name1", 1));
 		leagues.add(new PojoLeague(2, "name2", 1));

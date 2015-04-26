@@ -1,0 +1,433 @@
+INFO  [2015-04-26 13:59:28,216] org.hibernate.annotations.common.Version: HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+INFO  [2015-04-26 13:59:28,221] org.hibernate.Version: HHH000412: Hibernate Core {4.1.9.Final}
+INFO  [2015-04-26 13:59:28,223] org.hibernate.cfg.Environment: HHH000206: hibernate.properties not found
+INFO  [2015-04-26 13:59:28,224] org.hibernate.cfg.Environment: HHH000021: Bytecode provider name : javassist
+INFO  [2015-04-26 13:59:28,241] com.yammer.dropwizard.hibernate.SessionFactoryFactory: Entity classes: [com.example.helloworld.core.Person]
+INFO  [2015-04-26 13:59:28,598] org.hibernate.dialect.Dialect: HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+INFO  [2015-04-26 13:59:28,607] org.hibernate.engine.jdbc.internal.LobCreatorBuilder: HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+INFO  [2015-04-26 13:59:28,616] org.hibernate.engine.transaction.internal.TransactionFactoryInitiator: HHH000399: Using default transaction strategy (direct JDBC transactions)
+INFO  [2015-04-26 13:59:28,619] org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory: HHH000397: Using ASTQueryTranslatorFactory
+INFO  [2015-04-26 13:59:28,951] com.yammer.dropwizard.cli.ServerCommand: Starting hello-world
+                           web-scale hello world dP for the web
+                                                 88
+  .d8888b. dP.  .dP .d8888b. 88d8b.d8b. 88d888b. 88 .d8888b.
+  88ooood8  `8bd8'  88'  `88 88'`88'`88 88'  `88 88 88ooood8
+  88.  ...  .d88b.  88.  .88 88  88  88 88.  .88 88 88.  ...
+  `88888P' dP'  `dP `88888P8 dP  dP  dP 88Y888P' dP `88888P'
+                                        88
+                                        dP
+
+INFO  [2015-04-26 13:59:28,952] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2015-04-26 13:59:29,033] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2015-04-26 13:59:29,085] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+
+    GET     /hello-world (com.example.helloworld.resources.HelloWorldResource)
+    POST    /hello-world (com.example.helloworld.resources.HelloWorldResource)
+    GET     /protected (com.example.helloworld.resources.ProtectedResource)
+    GET     /people (com.example.helloworld.resources.PeopleResource)
+    POST    /people (com.example.helloworld.resources.PeopleResource)
+    GET     /people/{personId} (com.example.helloworld.resources.PersonResource)
+
+INFO  [2015-04-26 13:59:29,085] com.yammer.dropwizard.config.Environment: tasks = 
+
+    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
+
+INFO  [2015-04-26 13:59:29,282] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2015-04-26 13:59:29,284] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081
+WARN  [2015-04-26 14:00:18,872] org.hibernate.engine.jdbc.spi.SqlExceptionHelper: SQL Error: 42102, SQLState: 42S02
+ERROR [2015-04-26 14:00:18,872] org.hibernate.engine.jdbc.spi.SqlExceptionHelper: Table "PEOPLE" not found; SQL statement:
+/* named HQL query com.example.helloworld.core.Person.findAll */ select person0_.id as id0_, person0_.fullName as fullName0_, person0_.jobTitle as jobTitle0_ from people person0_ [42102-168]
+ERROR [2015-04-26 14:00:18,879] com.yammer.dropwizard.jersey.LoggingExceptionMapper: Error handling a request: d065667f33f63b33
+! org.hibernate.exception.SQLGrammarException: Table "PEOPLE" not found; SQL statement:
+/* named HQL query com.example.helloworld.core.Person.findAll */ select person0_.id as id0_, person0_.fullName as fullName0_, person0_.jobTitle as jobTitle0_ from people person0_ [42102-168]
+! at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:122) ~[hibernate-core-4.1.9.Final.jar:4.1.9.Final]
+! at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:49) ~[hibernate-core-4.1.9.Final.jar:4.1.9.Final]
+! at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:125) ~[hibernate-core-4.1.9.Final.jar:4.1.9.Final]
+! at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:110) ~[hibernate-core-4.1.9.Final.jar:4.1.9.Final]
+! at org.hibernate.engine.jdbc.internal.proxy.ConnectionProxyHandler.continueInvocation(ConnectionProxyHandler.java:146) ~[hibernate-core-4.1.9.Final.jar:4.1.9.Final]
+! at org.hibernate.engine.jdbc.internal.proxy.AbstractProxyHandler.invoke(AbstractProxyHandler.java:81) ~[hibernate-core-4.1.9.Final.jar:4.1.9.Final]
+! at com.sun.proxy.$Proxy54.prepareStatement(Unknown Source) ~[na:na]
+! at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$5.doPrepare(StatementPreparerImpl.java:147) ~[hibernate-core-4.1.9.Final.jar:4.1.9.Final]
+! at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$StatementPreparationTemplate.prepareStatement(StatementPreparerImpl.java:166) ~[hibernate-core-4.1.9.Final.jar:4.1.9.Final]
+! at org.hibernate.engine.jdbc.internal.StatementPreparerImpl.prepareQueryStatement(StatementPreparerImpl.java:145) ~[hibernate-core-4.1.9.Final.jar:4.1.9.Final]
+! at org.hibernate.loader.Loader.prepareQueryStatement(Loader.java:1854) ~[hibernate-core-4.1.9.Final.jar:4.1.9.Final]
+! at org.hibernate.loader.Loader.executeQueryStatement(Loader.java:1831) ~[hibernate-core-4.1.9.Final.jar:4.1.9.Final]
+! at org.hibernate.loader.Loader.executeQueryStatement(Loader.java:1811) ~[hibernate-core-4.1.9.Final.jar:4.1.9.Final]
+! at org.hibernate.loader.Loader.doQuery(Loader.java:899) ~[hibernate-core-4.1.9.Final.jar:4.1.9.Final]
+! at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:341) ~[hibernate-core-4.1.9.Final.jar:4.1.9.Final]
+! at org.hibernate.loader.Loader.doList(Loader.java:2516) ~[hibernate-core-4.1.9.Final.jar:4.1.9.Final]
+! at org.hibernate.loader.Loader.doList(Loader.java:2502) ~[hibernate-core-4.1.9.Final.jar:4.1.9.Final]
+! at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2332) ~[hibernate-core-4.1.9.Final.jar:4.1.9.Final]
+! at org.hibernate.loader.Loader.list(Loader.java:2327) ~[hibernate-core-4.1.9.Final.jar:4.1.9.Final]
+! at org.hibernate.loader.hql.QueryLoader.list(QueryLoader.java:490) ~[hibernate-core-4.1.9.Final.jar:4.1.9.Final]
+! at org.hibernate.hql.internal.ast.QueryTranslatorImpl.list(QueryTranslatorImpl.java:355) ~[hibernate-core-4.1.9.Final.jar:4.1.9.Final]
+! at org.hibernate.engine.query.spi.HQLQueryPlan.performList(HQLQueryPlan.java:195) ~[hibernate-core-4.1.9.Final.jar:4.1.9.Final]
+! at org.hibernate.internal.SessionImpl.list(SessionImpl.java:1247) ~[hibernate-core-4.1.9.Final.jar:4.1.9.Final]
+! at org.hibernate.internal.QueryImpl.list(QueryImpl.java:101) ~[hibernate-core-4.1.9.Final.jar:4.1.9.Final]
+! at com.yammer.dropwizard.hibernate.AbstractDAO.list(AbstractDAO.java:119) ~[dropwizard-hibernate-0.6.2.jar:na]
+! at com.example.helloworld.db.PersonDAO.findAll(PersonDAO.java:24) ~[main/:na]
+! at com.example.helloworld.resources.PeopleResource.listPeople(PeopleResource.java:33) ~[main/:na]
+! at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.7.0_55]
+! at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[na:1.7.0_55]
+! at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_55]
+! at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_55]
+! at com.sun.jersey.spi.container.JavaMethodInvokerFactory$1.invoke(JavaMethodInvokerFactory.java:60) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.model.method.dispatch.AbstractResourceMethodDispatchProvider$TypeOutInvoker._dispatch(AbstractResourceMethodDispatchProvider.java:185) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.model.method.dispatch.ResourceJavaMethodDispatcher.dispatch(ResourceJavaMethodDispatcher.java:75) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.yammer.dropwizard.hibernate.UnitOfWorkRequestDispatcher.dispatch(UnitOfWorkRequestDispatcher.java:43) ~[dropwizard-hibernate-0.6.2.jar:na]
+! at com.yammer.dropwizard.jersey.OptionalResourceMethodDispatchAdapter$OptionalRequestDispatcher.dispatch(OptionalResourceMethodDispatchAdapter.java:37) ~[dropwizard-core-0.6.2.jar:na]
+! at com.sun.jersey.server.impl.uri.rules.HttpMethodRule.accept(HttpMethodRule.java:302) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.uri.rules.ResourceObjectRule.accept(ResourceObjectRule.java:100) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.uri.rules.RightHandPathRule.accept(RightHandPathRule.java:147) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.uri.rules.RootResourceClassesRule.accept(RootResourceClassesRule.java:84) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1511) [jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1442) [jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1391) [jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1381) [jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.spi.container.servlet.WebComponent.service(WebComponent.java:416) [jersey-servlet-1.17.1.jar:1.17.1]
+! at com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:538) [jersey-servlet-1.17.1.jar:1.17.1]
+! at com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:716) [jersey-servlet-1.17.1.jar:1.17.1]
+! at javax.servlet.http.HttpServlet.service(HttpServlet.java:848) [javax.servlet-3.0.0.v201112011016.jar:na]
+! at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:669) [jetty-servlet-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1448) [jetty-servlet-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at com.yammer.dropwizard.servlets.ThreadNameFilter.doFilter(ThreadNameFilter.java:29) [dropwizard-core-0.6.2.jar:na]
+! at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1419) [jetty-servlet-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:455) [jetty-servlet-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1075) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:384) [jetty-servlet-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1009) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at com.yammer.metrics.jetty.InstrumentedHandler.handle(InstrumentedHandler.java:200) [metrics-jetty-2.2.0.jar:na]
+! at org.eclipse.jetty.server.handler.GzipHandler.handle(GzipHandler.java:264) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at com.yammer.dropwizard.jetty.BiDiGzipHandler.handle(BiDiGzipHandler.java:123) [dropwizard-core-0.6.2.jar:na]
+! at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:154) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.Server.handle(Server.java:368) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:489) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.BlockingHttpConnection.handleRequest(BlockingHttpConnection.java:53) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:942) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:1004) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:640) [jetty-http-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235) [jetty-http-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.BlockingHttpConnection.handle(BlockingHttpConnection.java:72) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.nio.BlockingChannelConnector$BlockingChannelEndPoint.run(BlockingChannelConnector.java:298) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608) [jetty-util-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543) [jetty-util-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at java.lang.Thread.run(Thread.java:745) [na:1.7.0_55]
+Caused by: ! org.h2.jdbc.JdbcSQLException: Table "PEOPLE" not found; SQL statement:
+/* named HQL query com.example.helloworld.core.Person.findAll */ select person0_.id as id0_, person0_.fullName as fullName0_, person0_.jobTitle as jobTitle0_ from people person0_ [42102-168]
+! at org.h2.message.DbException.getJdbcSQLException(DbException.java:329) ~[h2-1.3.168.jar:1.3.168]
+! at org.h2.message.DbException.get(DbException.java:169) ~[h2-1.3.168.jar:1.3.168]
+! at org.h2.message.DbException.get(DbException.java:146) ~[h2-1.3.168.jar:1.3.168]
+! at org.h2.command.Parser.readTableOrView(Parser.java:4770) ~[h2-1.3.168.jar:1.3.168]
+! at org.h2.command.Parser.readTableFilter(Parser.java:1084) ~[h2-1.3.168.jar:1.3.168]
+! at org.h2.command.Parser.parseSelectSimpleFromPart(Parser.java:1690) ~[h2-1.3.168.jar:1.3.168]
+! at org.h2.command.Parser.parseSelectSimple(Parser.java:1797) ~[h2-1.3.168.jar:1.3.168]
+! at org.h2.command.Parser.parseSelectSub(Parser.java:1684) ~[h2-1.3.168.jar:1.3.168]
+! at org.h2.command.Parser.parseSelectUnion(Parser.java:1527) ~[h2-1.3.168.jar:1.3.168]
+! at org.h2.command.Parser.parseSelect(Parser.java:1515) ~[h2-1.3.168.jar:1.3.168]
+! at org.h2.command.Parser.parsePrepared(Parser.java:405) ~[h2-1.3.168.jar:1.3.168]
+! at org.h2.command.Parser.parse(Parser.java:279) ~[h2-1.3.168.jar:1.3.168]
+! at org.h2.command.Parser.parse(Parser.java:251) ~[h2-1.3.168.jar:1.3.168]
+! at org.h2.command.Parser.prepareCommand(Parser.java:217) ~[h2-1.3.168.jar:1.3.168]
+! at org.h2.engine.Session.prepareLocal(Session.java:415) ~[h2-1.3.168.jar:1.3.168]
+! at org.h2.engine.Session.prepareCommand(Session.java:364) ~[h2-1.3.168.jar:1.3.168]
+! at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1109) ~[h2-1.3.168.jar:1.3.168]
+! at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:74) ~[h2-1.3.168.jar:1.3.168]
+! at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:264) ~[h2-1.3.168.jar:1.3.168]
+! at org.apache.tomcat.dbcp.dbcp.DelegatingConnection.prepareStatement(DelegatingConnection.java:281) ~[tomcat-dbcp-7.0.37.jar:7.0.37]
+! at org.apache.tomcat.dbcp.dbcp.PoolingDataSource$PoolGuardConnectionWrapper.prepareStatement(PoolingDataSource.java:313) ~[tomcat-dbcp-7.0.37.jar:7.0.37]
+! at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.7.0_55]
+! at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[na:1.7.0_55]
+! at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_55]
+! at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_55]
+! at org.hibernate.engine.jdbc.internal.proxy.ConnectionProxyHandler.continueInvocation(ConnectionProxyHandler.java:138) ~[hibernate-core-4.1.9.Final.jar:4.1.9.Final]
+!... 70 common frames omitted
+INFO  [2015-04-26 14:12:03,452] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8081
+INFO  [2015-04-26 14:12:03,452] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2015-04-26 14:12:03,453] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
+INFO  [2015-04-26 14:12:03,453] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/gbenevelli/Documents/workspace/gb-league/gb-league-api/build/classes/main/}
+INFO  [2015-04-26 14:12:05,509] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/gbenevelli/Documents/workspace/gb-league/gb-league-api/build/classes/main/}
+INFO  [2015-04-26 14:12:05,509] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
+INFO  [2015-04-26 14:13:23,663] org.hibernate.annotations.common.Version: HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+INFO  [2015-04-26 14:13:23,668] org.hibernate.Version: HHH000412: Hibernate Core {4.1.9.Final}
+INFO  [2015-04-26 14:13:23,669] org.hibernate.cfg.Environment: HHH000206: hibernate.properties not found
+INFO  [2015-04-26 14:13:23,670] org.hibernate.cfg.Environment: HHH000021: Bytecode provider name : javassist
+INFO  [2015-04-26 14:13:23,686] com.yammer.dropwizard.hibernate.SessionFactoryFactory: Entity classes: [com.example.helloworld.core.Person]
+INFO  [2015-04-26 14:13:24,003] org.hibernate.dialect.Dialect: HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+INFO  [2015-04-26 14:13:24,012] org.hibernate.engine.jdbc.internal.LobCreatorBuilder: HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+INFO  [2015-04-26 14:13:24,019] org.hibernate.engine.transaction.internal.TransactionFactoryInitiator: HHH000399: Using default transaction strategy (direct JDBC transactions)
+INFO  [2015-04-26 14:13:24,022] org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory: HHH000397: Using ASTQueryTranslatorFactory
+INFO  [2015-04-26 14:13:24,320] com.yammer.dropwizard.cli.ServerCommand: Starting hello-world
+                           web-scale hello world dP for the web
+                                                 88
+  .d8888b. dP.  .dP .d8888b. 88d8b.d8b. 88d888b. 88 .d8888b.
+  88ooood8  `8bd8'  88'  `88 88'`88'`88 88'  `88 88 88ooood8
+  88.  ...  .d88b.  88.  .88 88  88  88 88.  .88 88 88.  ...
+  `88888P' dP'  `dP `88888P8 dP  dP  dP 88Y888P' dP `88888P'
+                                        88
+                                        dP
+
+INFO  [2015-04-26 14:13:24,321] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2015-04-26 14:13:24,383] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2015-04-26 14:13:24,428] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+
+    GET     /hello-world (com.example.helloworld.resources.HelloWorldResource)
+    POST    /hello-world (com.example.helloworld.resources.HelloWorldResource)
+    GET     /protected (com.example.helloworld.resources.ProtectedResource)
+    GET     /people (com.example.helloworld.resources.PeopleResource)
+    POST    /people (com.example.helloworld.resources.PeopleResource)
+    GET     /people/{personId} (com.example.helloworld.resources.PersonResource)
+
+INFO  [2015-04-26 14:13:24,429] com.yammer.dropwizard.config.Environment: tasks = 
+
+    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
+
+INFO  [2015-04-26 14:13:24,619] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2015-04-26 14:13:24,621] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081
+INFO  [2015-04-26 15:55:46,408] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8081
+INFO  [2015-04-26 15:55:46,408] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2015-04-26 15:55:46,410] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
+INFO  [2015-04-26 15:55:46,410] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/gbenevelli/Documents/workspace/gb-league/gb-league-api/build/classes/main/}
+INFO  [2015-04-26 15:55:48,464] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/gbenevelli/Documents/workspace/gb-league/gb-league-api/build/classes/main/}
+INFO  [2015-04-26 15:55:48,464] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
+INFO  [2015-04-26 15:55:53,372] org.hibernate.annotations.common.Version: HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+INFO  [2015-04-26 15:55:53,377] org.hibernate.Version: HHH000412: Hibernate Core {4.1.9.Final}
+INFO  [2015-04-26 15:55:53,378] org.hibernate.cfg.Environment: HHH000206: hibernate.properties not found
+INFO  [2015-04-26 15:55:53,379] org.hibernate.cfg.Environment: HHH000021: Bytecode provider name : javassist
+INFO  [2015-04-26 15:55:53,395] com.yammer.dropwizard.hibernate.SessionFactoryFactory: Entity classes: [com.example.helloworld.core.Person]
+INFO  [2015-04-26 15:55:53,720] org.hibernate.dialect.Dialect: HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+INFO  [2015-04-26 15:55:53,729] org.hibernate.engine.jdbc.internal.LobCreatorBuilder: HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+INFO  [2015-04-26 15:55:53,739] org.hibernate.engine.transaction.internal.TransactionFactoryInitiator: HHH000399: Using default transaction strategy (direct JDBC transactions)
+INFO  [2015-04-26 15:55:53,742] org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory: HHH000397: Using ASTQueryTranslatorFactory
+INFO  [2015-04-26 15:55:54,027] com.yammer.dropwizard.cli.ServerCommand: Starting hello-world
+                           web-scale hello world dP for the web
+                                                 88
+  .d8888b. dP.  .dP .d8888b. 88d8b.d8b. 88d888b. 88 .d8888b.
+  88ooood8  `8bd8'  88'  `88 88'`88'`88 88'  `88 88 88ooood8
+  88.  ...  .d88b.  88.  .88 88  88  88 88.  .88 88 88.  ...
+  `88888P' dP'  `dP `88888P8 dP  dP  dP 88Y888P' dP `88888P'
+                                        88
+                                        dP
+
+INFO  [2015-04-26 15:55:54,029] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2015-04-26 15:55:54,095] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2015-04-26 15:55:54,141] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+
+    GET     /hello-world (com.example.helloworld.resources.HelloWorldResource)
+    POST    /hello-world (com.example.helloworld.resources.HelloWorldResource)
+    GET     /protected (com.example.helloworld.resources.ProtectedResource)
+    GET     /people (com.example.helloworld.resources.PeopleResource)
+    POST    /people (com.example.helloworld.resources.PeopleResource)
+    GET     /people/{personId} (com.example.helloworld.resources.PersonResource)
+
+INFO  [2015-04-26 15:55:54,141] com.yammer.dropwizard.config.Environment: tasks = 
+
+    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
+
+INFO  [2015-04-26 15:55:54,326] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2015-04-26 15:55:54,329] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081
+INFO  [2015-04-26 15:57:07,540] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8081
+INFO  [2015-04-26 15:57:07,541] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2015-04-26 15:57:07,542] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
+INFO  [2015-04-26 15:57:07,542] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/gbenevelli/Documents/workspace/gb-league/gb-league-api/build/classes/main/}
+INFO  [2015-04-26 15:57:09,599] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/gbenevelli/Documents/workspace/gb-league/gb-league-api/build/classes/main/}
+INFO  [2015-04-26 15:57:09,599] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
+INFO  [2015-04-26 15:57:14,189] org.hibernate.annotations.common.Version: HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+INFO  [2015-04-26 15:57:14,195] org.hibernate.Version: HHH000412: Hibernate Core {4.1.9.Final}
+INFO  [2015-04-26 15:57:14,195] org.hibernate.cfg.Environment: HHH000206: hibernate.properties not found
+INFO  [2015-04-26 15:57:14,196] org.hibernate.cfg.Environment: HHH000021: Bytecode provider name : javassist
+INFO  [2015-04-26 15:57:14,213] com.yammer.dropwizard.hibernate.SessionFactoryFactory: Entity classes: [com.example.helloworld.core.Person]
+INFO  [2015-04-26 15:57:14,541] org.hibernate.dialect.Dialect: HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+INFO  [2015-04-26 15:57:14,550] org.hibernate.engine.jdbc.internal.LobCreatorBuilder: HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+INFO  [2015-04-26 15:57:14,557] org.hibernate.engine.transaction.internal.TransactionFactoryInitiator: HHH000399: Using default transaction strategy (direct JDBC transactions)
+INFO  [2015-04-26 15:57:14,560] org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory: HHH000397: Using ASTQueryTranslatorFactory
+INFO  [2015-04-26 15:57:14,838] com.yammer.dropwizard.cli.ServerCommand: Starting hello-world
+                           web-scale hello world dP for the web
+                                                 88
+  .d8888b. dP.  .dP .d8888b. 88d8b.d8b. 88d888b. 88 .d8888b.
+  88ooood8  `8bd8'  88'  `88 88'`88'`88 88'  `88 88 88ooood8
+  88.  ...  .d88b.  88.  .88 88  88  88 88.  .88 88 88.  ...
+  `88888P' dP'  `dP `88888P8 dP  dP  dP 88Y888P' dP `88888P'
+                                        88
+                                        dP
+
+INFO  [2015-04-26 15:57:14,839] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2015-04-26 15:57:14,899] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2015-04-26 15:57:14,947] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+
+    GET     /hello-world (com.example.helloworld.resources.HelloWorldResource)
+    POST    /hello-world (com.example.helloworld.resources.HelloWorldResource)
+    GET     /protected (com.example.helloworld.resources.ProtectedResource)
+    GET     /people (com.example.helloworld.resources.PeopleResource)
+    POST    /people (com.example.helloworld.resources.PeopleResource)
+    GET     /people/{personId} (com.example.helloworld.resources.PersonResource)
+
+INFO  [2015-04-26 15:57:14,947] com.yammer.dropwizard.config.Environment: tasks = 
+
+    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
+
+INFO  [2015-04-26 15:57:15,132] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2015-04-26 15:57:15,135] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081
+INFO  [2015-04-26 16:00:07,134] com.example.helloworld.resources.HelloWorldResource: Received a saying: com.example.helloworld.core.Saying@1f36154e
+INFO  [2015-04-26 16:02:23,102] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8081
+INFO  [2015-04-26 16:02:23,103] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2015-04-26 16:02:23,103] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
+INFO  [2015-04-26 16:02:23,103] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/gbenevelli/Documents/workspace/gb-league/gb-league-api/build/classes/main/}
+INFO  [2015-04-26 16:02:25,159] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/gbenevelli/Documents/workspace/gb-league/gb-league-api/build/classes/main/}
+INFO  [2015-04-26 16:02:25,159] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
+INFO  [2015-04-26 16:02:29,986] org.hibernate.annotations.common.Version: HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+INFO  [2015-04-26 16:02:29,991] org.hibernate.Version: HHH000412: Hibernate Core {4.1.9.Final}
+INFO  [2015-04-26 16:02:29,992] org.hibernate.cfg.Environment: HHH000206: hibernate.properties not found
+INFO  [2015-04-26 16:02:29,993] org.hibernate.cfg.Environment: HHH000021: Bytecode provider name : javassist
+INFO  [2015-04-26 16:02:30,009] com.yammer.dropwizard.hibernate.SessionFactoryFactory: Entity classes: [com.example.helloworld.core.Person]
+INFO  [2015-04-26 16:02:30,328] org.hibernate.dialect.Dialect: HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+INFO  [2015-04-26 16:02:30,336] org.hibernate.engine.jdbc.internal.LobCreatorBuilder: HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+INFO  [2015-04-26 16:02:30,344] org.hibernate.engine.transaction.internal.TransactionFactoryInitiator: HHH000399: Using default transaction strategy (direct JDBC transactions)
+INFO  [2015-04-26 16:02:30,346] org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory: HHH000397: Using ASTQueryTranslatorFactory
+INFO  [2015-04-26 16:02:30,628] com.yammer.dropwizard.cli.ServerCommand: Starting hello-world
+                           web-scale hello world dP for the web
+                                                 88
+  .d8888b. dP.  .dP .d8888b. 88d8b.d8b. 88d888b. 88 .d8888b.
+  88ooood8  `8bd8'  88'  `88 88'`88'`88 88'  `88 88 88ooood8
+  88.  ...  .d88b.  88.  .88 88  88  88 88.  .88 88 88.  ...
+  `88888P' dP'  `dP `88888P8 dP  dP  dP 88Y888P' dP `88888P'
+                                        88
+                                        dP
+
+INFO  [2015-04-26 16:02:30,630] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2015-04-26 16:02:30,693] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2015-04-26 16:02:30,739] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+
+    GET     /hello-world (com.example.helloworld.resources.HelloWorldResource)
+    POST    /hello-world (com.example.helloworld.resources.HelloWorldResource)
+    GET     /protected (com.example.helloworld.resources.ProtectedResource)
+    GET     /people (com.example.helloworld.resources.PeopleResource)
+    POST    /people (com.example.helloworld.resources.PeopleResource)
+    GET     /people/{personId} (com.example.helloworld.resources.PersonResource)
+
+INFO  [2015-04-26 16:02:30,740] com.yammer.dropwizard.config.Environment: tasks = 
+
+    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
+
+INFO  [2015-04-26 16:02:30,925] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2015-04-26 16:02:30,929] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081
+INFO  [2015-04-26 16:03:35,416] com.example.helloworld.resources.HelloWorldResource: Received a saying: {
+  "id" : 1,
+  "content" : "123"
+}
+INFO  [2015-04-26 16:03:47,904] com.example.helloworld.resources.HelloWorldResource: Received a saying: {
+  "id" : 1,
+  "content" : "123"
+}
+INFO  [2015-04-26 16:04:00,681] com.example.helloworld.resources.HelloWorldResource: Received a saying: {
+  "id" : 1,
+  "content" : "123"
+}
+INFO  [2015-04-26 16:04:47,135] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8081
+INFO  [2015-04-26 16:04:47,136] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2015-04-26 16:04:47,136] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
+INFO  [2015-04-26 16:04:47,136] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/gbenevelli/Documents/workspace/gb-league/gb-league-api/build/classes/main/}
+INFO  [2015-04-26 16:04:49,189] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/gbenevelli/Documents/workspace/gb-league/gb-league-api/build/classes/main/}
+INFO  [2015-04-26 16:04:49,190] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
+INFO  [2015-04-26 16:04:53,992] org.hibernate.annotations.common.Version: HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+INFO  [2015-04-26 16:04:53,997] org.hibernate.Version: HHH000412: Hibernate Core {4.1.9.Final}
+INFO  [2015-04-26 16:04:53,998] org.hibernate.cfg.Environment: HHH000206: hibernate.properties not found
+INFO  [2015-04-26 16:04:53,999] org.hibernate.cfg.Environment: HHH000021: Bytecode provider name : javassist
+INFO  [2015-04-26 16:04:54,015] com.yammer.dropwizard.hibernate.SessionFactoryFactory: Entity classes: [com.example.helloworld.core.Person]
+INFO  [2015-04-26 16:04:54,334] org.hibernate.dialect.Dialect: HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+INFO  [2015-04-26 16:04:54,343] org.hibernate.engine.jdbc.internal.LobCreatorBuilder: HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+INFO  [2015-04-26 16:04:54,351] org.hibernate.engine.transaction.internal.TransactionFactoryInitiator: HHH000399: Using default transaction strategy (direct JDBC transactions)
+INFO  [2015-04-26 16:04:54,353] org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory: HHH000397: Using ASTQueryTranslatorFactory
+INFO  [2015-04-26 16:04:54,632] com.yammer.dropwizard.cli.ServerCommand: Starting hello-world
+                           web-scale hello world dP for the web
+                                                 88
+  .d8888b. dP.  .dP .d8888b. 88d8b.d8b. 88d888b. 88 .d8888b.
+  88ooood8  `8bd8'  88'  `88 88'`88'`88 88'  `88 88 88ooood8
+  88.  ...  .d88b.  88.  .88 88  88  88 88.  .88 88 88.  ...
+  `88888P' dP'  `dP `88888P8 dP  dP  dP 88Y888P' dP `88888P'
+                                        88
+                                        dP
+
+INFO  [2015-04-26 16:04:54,633] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2015-04-26 16:04:54,696] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2015-04-26 16:04:54,742] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+
+    GET     /hello-world (com.example.helloworld.resources.HelloWorldResource)
+    POST    /hello-world (com.example.helloworld.resources.HelloWorldResource)
+    GET     /protected (com.example.helloworld.resources.ProtectedResource)
+    GET     /people (com.example.helloworld.resources.PeopleResource)
+    POST    /people (com.example.helloworld.resources.PeopleResource)
+    GET     /people/{personId} (com.example.helloworld.resources.PersonResource)
+
+INFO  [2015-04-26 16:04:54,742] com.yammer.dropwizard.config.Environment: tasks = 
+
+    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
+
+INFO  [2015-04-26 16:04:54,923] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2015-04-26 16:04:54,925] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081
+INFO  [2015-04-26 16:05:08,610] com.example.helloworld.resources.HelloWorldResource: Received a saying: {
+  "id" : 1,
+  "content" : "123"
+}
+INFO  [2015-04-26 16:05:08,623] com.example.helloworld.resources.HelloWorldResource: Received a saying: {
+  "id" : 1,
+  "content" : "123"
+}
+INFO  [2015-04-26 16:05:14,018] com.example.helloworld.resources.HelloWorldResource: Received a saying: {
+  "id" : 1,
+  "content" : "123"
+}
+INFO  [2015-04-26 16:11:55,579] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8081
+INFO  [2015-04-26 16:11:55,580] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2015-04-26 16:11:55,580] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
+INFO  [2015-04-26 16:11:55,580] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/gbenevelli/Documents/workspace/gb-league/gb-league-api/build/classes/main/}
+INFO  [2015-04-26 16:11:57,638] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/gbenevelli/Documents/workspace/gb-league/gb-league-api/build/classes/main/}
+INFO  [2015-04-26 16:11:57,638] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}
+INFO  [2015-04-26 16:13:19,123] org.hibernate.annotations.common.Version: HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+INFO  [2015-04-26 16:13:19,128] org.hibernate.Version: HHH000412: Hibernate Core {4.1.9.Final}
+INFO  [2015-04-26 16:13:19,129] org.hibernate.cfg.Environment: HHH000206: hibernate.properties not found
+INFO  [2015-04-26 16:13:19,130] org.hibernate.cfg.Environment: HHH000021: Bytecode provider name : javassist
+INFO  [2015-04-26 16:13:19,147] com.yammer.dropwizard.hibernate.SessionFactoryFactory: Entity classes: [com.example.helloworld.core.Person]
+INFO  [2015-04-26 16:13:19,478] org.hibernate.dialect.Dialect: HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+INFO  [2015-04-26 16:13:19,488] org.hibernate.engine.jdbc.internal.LobCreatorBuilder: HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+INFO  [2015-04-26 16:13:19,495] org.hibernate.engine.transaction.internal.TransactionFactoryInitiator: HHH000399: Using default transaction strategy (direct JDBC transactions)
+INFO  [2015-04-26 16:13:19,498] org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory: HHH000397: Using ASTQueryTranslatorFactory
+INFO  [2015-04-26 16:13:19,794] com.yammer.dropwizard.cli.ServerCommand: Starting hello-world
+                           web-scale hello world dP for the web
+                                                 88
+  .d8888b. dP.  .dP .d8888b. 88d8b.d8b. 88d888b. 88 .d8888b.
+  88ooood8  `8bd8'  88'  `88 88'`88'`88 88'  `88 88 88ooood8
+  88.  ...  .d88b.  88.  .88 88  88  88 88.  .88 88 88.  ...
+  `88888P' dP'  `dP `88888P8 dP  dP  dP 88Y888P' dP `88888P'
+                                        88
+                                        dP
+
+INFO  [2015-04-26 16:13:19,795] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2015-04-26 16:13:19,857] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2015-04-26 16:13:19,909] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+
+    GET     /hello-world (com.example.helloworld.resources.HelloWorldResource)
+    POST    /hello-world (com.example.helloworld.resources.HelloWorldResource)
+    GET     /protected (com.example.helloworld.resources.ProtectedResource)
+    GET     /people (com.example.helloworld.resources.PeopleResource)
+    POST    /people (com.example.helloworld.resources.PeopleResource)
+    GET     /people/{personId} (com.example.helloworld.resources.PersonResource)
+
+INFO  [2015-04-26 16:13:19,909] com.yammer.dropwizard.config.Environment: tasks = 
+
+    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
+
+INFO  [2015-04-26 16:13:20,120] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2015-04-26 16:13:20,122] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081
+INFO  [2015-04-26 16:14:08,562] com.example.helloworld.resources.HelloWorldResource: Received a saying: {
+  "id" : 1,
+  "content" : "123"
+}
+INFO  [2015-04-26 16:14:22,596] org.eclipse.jetty.server.Server: Graceful shutdown SocketConnector@0.0.0.0:8081
+INFO  [2015-04-26 16:14:22,597] org.eclipse.jetty.server.Server: Graceful shutdown InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2015-04-26 16:14:22,597] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,null}
+INFO  [2015-04-26 16:14:22,597] org.eclipse.jetty.server.Server: Graceful shutdown o.e.j.s.ServletContextHandler{/,file:/Users/gbenevelli/Documents/workspace/gb-league/gb-league-api/build/classes/main/}
+INFO  [2015-04-26 16:14:24,653] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,file:/Users/gbenevelli/Documents/workspace/gb-league/gb-league-api/build/classes/main/}
+INFO  [2015-04-26 16:14:24,653] org.eclipse.jetty.server.handler.ContextHandler: stopped o.e.j.s.ServletContextHandler{/,null}

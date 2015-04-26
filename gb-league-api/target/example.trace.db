@@ -1,0 +1,3 @@
+04-26 09:00:18 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "PEOPLE" not found; SQL statement:
+/* named HQL query com.example.helloworld.core.Person.findAll */ select person0_.id as id0_, person0_.fullName as fullName0_, person0_.jobTitle as jobTitle0_ from people person0_ [42102-168]
