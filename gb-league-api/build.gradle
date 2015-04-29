@@ -10,7 +10,7 @@ targetCompatibility = '1.7'
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 
 // The main class of the application
-mainClassName = 'com.gbleague.server.HelloWorldService'
+mainClassName = 'com.gbleague.server.LeagueService'
 
 // Add Gradle OneJar Plugin, see https://github.com/rholder/gradle-one-jar
 buildscript {

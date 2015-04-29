@@ -1,7 +1,7 @@
 package com.example.helloworld.cli;
 
 import com.example.helloworld.core.Template;
-import com.gbleague.server.HelloWorldConfiguration;
+import com.gbleague.server.LeagueConfiguration;
 import com.google.common.base.Optional;
 import com.yammer.dropwizard.cli.ConfiguredCommand;
 import com.yammer.dropwizard.config.Bootstrap;
@@ -11,7 +11,7 @@ import net.sourceforge.argparse4j.inf.Subparser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class RenderCommand extends ConfiguredCommand<HelloWorldConfiguration> {
+public class RenderCommand extends ConfiguredCommand<LeagueConfiguration> {
     private static final Logger LOGGER = LoggerFactory.getLogger(RenderCommand.class);
 
     public RenderCommand() {
@@ -29,9 +29,9 @@ public class RenderCommand extends ConfiguredCommand<HelloWorldConfiguration> {
     }
 
     @Override
-    protected void run(Bootstrap<HelloWorldConfiguration> bootstrap,
+    protected void run(Bootstrap<LeagueConfiguration> bootstrap,
                        Namespace namespace,
-                       HelloWorldConfiguration configuration) throws Exception {
+                       LeagueConfiguration configuration) throws Exception {
         final Template template = configuration.buildTemplate();
 
         if (namespace.getBoolean("include-default")) {

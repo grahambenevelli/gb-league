@@ -1,12 +1,16 @@
 package com.gbleague.models.manager;
 
+import java.util.Objects;
+
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class Manager {
     private long id;
     private String username;
+    
+    @JsonIgnore
     private String password;
 
     public Manager() {}
