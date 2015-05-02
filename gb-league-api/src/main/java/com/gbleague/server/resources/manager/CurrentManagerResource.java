@@ -15,27 +15,17 @@ import com.gbleague.models.manager.Manager;
 import com.gbleague.server.resources.AbstractResource;
 import com.yammer.dropwizard.jersey.params.LongParam;
 
-@Path("/manager/{managerId}")
+@Path("/manager/current")
 @Produces(MediaType.APPLICATION_JSON)
-public class ManagerResource extends AbstractResource {
-	
-	private final ManagerManager managerManager;
-	
-	public ManagerResource(ManagerManager managerManager) {
-		this.managerManager = managerManager;
-	}
+public class CurrentManagerResource extends AbstractResource {
 
 	@GET
-	public Response getManager(@Context HttpServletRequest request, @PathParam("managerId") LongParam personId) {
+	public Response getManager(@Context HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		Object o = session.getAttribute("currentManager");
-		try {
-			Manager manager = managerManager.getManagerById(personId.get());
-			return Response.ok(manager).build();
-		} catch (Exception e) {
-			return this.handleException(e);
+		if (o instanceof Manager) {
+			return Response.ok(o).build();
 		}
+		return Response.status(Response.Status.UNAUTHORIZED).build();
 	}
-	
-	// TODO post
 }

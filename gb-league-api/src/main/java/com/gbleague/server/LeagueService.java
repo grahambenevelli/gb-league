@@ -13,6 +13,7 @@ import com.gbleague.db.IManagerDAO;
 import com.gbleague.db.file.FileManagerDAO;
 import com.gbleague.manager.manager.ManagerManager;
 import com.gbleague.models.manager.Manager;
+import com.gbleague.server.resources.manager.CurrentManagerResource;
 import com.gbleague.server.resources.manager.ManagerResource;
 import com.yammer.dropwizard.Service;
 import com.yammer.dropwizard.assets.AssetsBundle;
@@ -22,6 +23,8 @@ import com.yammer.dropwizard.config.Environment;
 import com.yammer.dropwizard.db.DatabaseConfiguration;
 import com.yammer.dropwizard.hibernate.HibernateBundle;
 import com.yammer.dropwizard.migrations.MigrationsBundle;
+import org.eclipse.jetty.server.session.SessionHandler;
+import org.eclipse.jetty.servlet.ServletContextHandler;
 
 public class LeagueService extends Service<LeagueConfiguration> {
 
@@ -63,22 +66,35 @@ public class LeagueService extends Service<LeagueConfiguration> {
 	@Override
 	public void run(LeagueConfiguration configuration, Environment environment) throws ClassNotFoundException {
 		// TODO move to spring
+		// DAOs
 		final PersonDAO dao = new PersonDAO(hibernateBundle.getSessionFactory());
 		final IManagerDAO managerDAO = new FileManagerDAO();
-		
-		final ManagerManager managerManager = new ManagerManager(managerDAO);
 
+		// Managers
+		final ManagerManager managerManager = new ManagerManager(managerDAO);
+		
+		// Sessions
+		final ServletContextHandler handler = new ServletContextHandler(ServletContextHandler.SESSIONS);
+		SessionHandler sessionHandler = new SessionHandler();
+		environment.setSessionHandler(sessionHandler);
+
+		// Auth
 		environment.addProvider(new BasicAuthProvider<Manager>(new TestAuthenticator(managerDAO), "Enter you league password"));
 
+		// Used for what?
 		final Template template = configuration.buildTemplate();
 
+		// Healthchecks
 		environment.addHealthCheck(new TemplateHealthCheck(template));
 
+		// Test Resources
 		environment.addResource(new HelloWorldResource(template));
 		environment.addResource(new ProtectedResource());
-
 		environment.addResource(new PeopleResource(dao));
 		environment.addResource(new PersonResource(dao));
+		
+		// Actual resources
         environment.addResource(new ManagerResource(managerManager));
+		environment.addResource(new CurrentManagerResource());
 	}
 }
