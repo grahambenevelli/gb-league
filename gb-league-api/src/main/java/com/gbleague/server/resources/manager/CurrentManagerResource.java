@@ -13,6 +13,7 @@ import javax.ws.rs.core.Response;
 import com.gbleague.manager.manager.ManagerManager;
 import com.gbleague.models.manager.Manager;
 import com.gbleague.server.resources.AbstractResource;
+import com.yammer.dropwizard.auth.Auth;
 import com.yammer.dropwizard.jersey.params.LongParam;
 
 @Path("/manager/current")
@@ -20,12 +21,9 @@ import com.yammer.dropwizard.jersey.params.LongParam;
 public class CurrentManagerResource extends AbstractResource {
 
 	@GET
-	public Response getManager(@Context HttpServletRequest request) {
-		HttpSession session = request.getSession();
-		Object o = session.getAttribute("currentManager");
-		if (o instanceof Manager) {
-			return Response.ok(o).build();
-		}
-		return Response.status(Response.Status.UNAUTHORIZED).build();
+	public Response getManager(
+			@Context HttpServletRequest request,
+			@Auth Manager manger) {
+		return Response.ok(manger).build();
 	}
 }

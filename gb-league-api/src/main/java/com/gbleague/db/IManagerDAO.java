@@ -23,7 +23,7 @@ public interface IManagerDAO {
 	 * Create a manager record in the database
 	 * @param manager The manager to save
 	 */
-	public void createManager(Manager manager);
+	public Manager createManager(Manager manager);
 
 	/**
 	 * Update a manager record in the database

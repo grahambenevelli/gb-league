@@ -26,4 +26,13 @@ public class ManagerManager {
 			throw new NotFoundException();
 		}
 	}
+
+	/**
+	 * Persist the given manager
+	 * @param managerToCreate The manager to persist
+	 * @return The manager created
+	 */
+	public Manager createManager(Manager managerToCreate) {
+		return managerDAO.createManager(managerToCreate);
+	}
 }

@@ -59,9 +59,14 @@ public class FileManagerDAO implements IManagerDAO {
 	}
 
 	@Override
-	public void createManager(Manager manager) {
+	public Manager createManager(Manager manager) {
 		try {
 			FileOutput output = getFileOutput();
+			for (Manager record : output.managers) {
+				if (record.getUsername().equals(manager.getUsername())) {
+					return record;
+				}
+			}
 			long newId = output.managers.isEmpty() ? 1 : Iterables.getLast(output.managers).getId() + 1;
 			manager.setId(newId);
 			output.managers.add(manager);
@@ -77,6 +82,7 @@ public class FileManagerDAO implements IManagerDAO {
 		} catch (IOException e) {
 			Throwables.propagate(e);
 		}
+		return manager;
 	}
 
 	private File getFile() {
@@ -86,7 +92,6 @@ public class FileManagerDAO implements IManagerDAO {
 
 	@Override
 	public void updateManager(Manager manager) {
-		// FileWriter writer = new FileWriter("D:/xyu.csv",true);
 		// TODO implement
 	}
 
