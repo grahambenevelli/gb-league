@@ -19,7 +19,7 @@ public class ManagerManager {
 	 * @return the manager
 	 */
 	public Manager getManagerById(long id) {
-		Optional<Manager> manager = managerDAO.getManagerById(id);
+		Optional<Manager> manager = managerDAO.getById(id);
 		if (manager.isPresent()) {
 			return manager.get();
 		} else {

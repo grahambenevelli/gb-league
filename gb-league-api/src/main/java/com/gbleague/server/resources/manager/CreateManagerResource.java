@@ -28,8 +28,7 @@ public class CreateManagerResource extends AbstractResource {
 			@Auth Manager manager,
 			@Valid CreateManagerRequest requestObject) {
 		try {
-			Manager toCreate = new Manager()
-					.setUsername(requestObject.getUsername())
+			Manager toCreate = requestObject.getManager()
 					.setPassword(requestObject.getPassword());
 			
 			Manager managerCreated = managerManager.createManager(toCreate);

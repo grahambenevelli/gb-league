@@ -5,22 +5,22 @@ import java.util.Objects;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 public class CreateManagerRequest {
-    private String username;
+    private Manager manager;
     private String password;
 
     public CreateManagerRequest() {}
 
-    public CreateManagerRequest(String username, String password) {
-        this.username = username;
+    public CreateManagerRequest(Manager manager, String password) {
+        this.manager = manager;
         this.password = password;
     }
 
-    public String getUsername() {
-        return username;
+    public Manager getManager() {
+        return manager;
     }
 
-    public CreateManagerRequest setUsername(String username) {
-        this.username = username;
+    public CreateManagerRequest setManager(Manager manager) {
+        this.manager = manager;
         return this;
     }
 
@@ -47,19 +47,19 @@ public class CreateManagerRequest {
         return equals(manager);
     }
 
-    private boolean equals(CreateManagerRequest manager) {
-        return Objects.equals(username, manager.username)
-                && Objects.equals(password, manager.password);
+    private boolean equals(CreateManagerRequest request) {
+        return Objects.equals(manager, request.manager)
+                && Objects.equals(password, request.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(username, password);
+        return Objects.hash(manager, password);
     }
 
     @Override public String toString() {
         return new ToStringBuilder(this)
-                .append("username", username)
+                .append("manager", manager)
                 .append("password", password)
                 .toString();
     }

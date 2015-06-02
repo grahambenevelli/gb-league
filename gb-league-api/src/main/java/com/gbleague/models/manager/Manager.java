@@ -2,12 +2,12 @@ package com.gbleague.models.manager;
 
 import java.util.Objects;
 
+import com.gbleague.models.AbstractModelWithId;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-public class Manager {
-    private long id;
+public class Manager extends AbstractModelWithId {
     private String username;
     
     @JsonIgnore
@@ -19,15 +19,6 @@ public class Manager {
         this.id = id;
         this.username = username;
         this.password = password;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public Manager setId(long id) {
-        this.id = id;
-        return this;
     }
 
     public String getUsername() {
@@ -79,5 +70,11 @@ public class Manager {
                 .append("username", username)
                 .append("password", password)
                 .toString();
+    }
+
+    @Override 
+    public Manager setId(long id) {
+        this.id = id;
+        return this;
     }
 }

@@ -17,7 +17,7 @@ public interface IManagerDAO {
 	 * @param id The is of the manager
 	 * @return The Manager is existent, absent if not
 	 */
-	public Optional<Manager> getManagerById(long id);
+	public Optional<Manager> getById(long id);
 
 	/**
 	 * Create a manager record in the database

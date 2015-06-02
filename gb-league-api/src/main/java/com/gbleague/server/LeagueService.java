@@ -2,20 +2,21 @@ package com.gbleague.server;
 
 import com.example.helloworld.core.Person;
 import com.example.helloworld.core.Template;
-import com.example.helloworld.db.PersonDAO;
 import com.example.helloworld.health.TemplateHealthCheck;
 import com.example.helloworld.resources.HelloWorldResource;
-import com.example.helloworld.resources.PeopleResource;
-import com.example.helloworld.resources.PersonResource;
-import com.gbleague.server.resources.signin.SigninResource;
 import com.gbleague.auth.TestAuthenticator;
+import com.gbleague.db.ILeagueDAO;
 import com.gbleague.db.IManagerDAO;
+import com.gbleague.db.file.FileLeagueDAO;
 import com.gbleague.db.file.FileManagerDAO;
+import com.gbleague.manager.league.LeagueManager;
 import com.gbleague.manager.manager.ManagerManager;
 import com.gbleague.models.manager.Manager;
+import com.gbleague.server.resources.league.LeagueByIdResource;
 import com.gbleague.server.resources.manager.CreateManagerResource;
 import com.gbleague.server.resources.manager.CurrentManagerResource;
 import com.gbleague.server.resources.manager.ManagerByIdResource;
+import com.gbleague.server.resources.signin.SigninResource;
 import com.yammer.dropwizard.Service;
 import com.yammer.dropwizard.assets.AssetsBundle;
 import com.yammer.dropwizard.auth.basic.BasicAuthProvider;
@@ -47,7 +48,10 @@ public class LeagueService extends Service<LeagueConfiguration> {
 		// Get access to static files
 		bootstrap.addBundle(new AssetsBundle());
 
-		// Hibernate related
+//		hibernateRelated(bootstrap);
+	}
+
+	private void hibernateRelated(Bootstrap<LeagueConfiguration> bootstrap) {
 		bootstrap.addBundle(new MigrationsBundle<LeagueConfiguration>() {
 
 			@Override
@@ -66,11 +70,13 @@ public class LeagueService extends Service<LeagueConfiguration> {
 	public void run(LeagueConfiguration configuration, Environment environment) throws ClassNotFoundException {
 		// TODO move to spring
 		// DAOs
-		final PersonDAO dao = new PersonDAO(hibernateBundle.getSessionFactory());
+//		final PersonDAO dao = new PersonDAO(hibernateBundle.getSessionFactory());
 		final IManagerDAO managerDAO = new FileManagerDAO();
+		final ILeagueDAO leagueDAO = new FileLeagueDAO();
 
 		// Managers
 		final ManagerManager managerManager = new ManagerManager(managerDAO);
+		final LeagueManager leagueManager = new LeagueManager(leagueDAO);
 
 		// Auth
 		environment.addProvider(new BasicAuthProvider<Manager>(new TestAuthenticator(managerDAO), "Enter you league password"));
@@ -88,13 +94,14 @@ public class LeagueService extends Service<LeagueConfiguration> {
 
 		// Test Resources
 		environment.addResource(new HelloWorldResource(template));
-		environment.addResource(new SigninResource());
-		environment.addResource(new PeopleResource(dao));
-		environment.addResource(new PersonResource(dao));
+//		environment.addResource(new PeopleResource(dao));
+//		environment.addResource(new PersonResource(dao));
 		
 		// Actual resources
+		environment.addResource(new SigninResource());
         environment.addResource(new ManagerByIdResource(managerManager));
 		environment.addResource(new CurrentManagerResource());
 		environment.addResource(new CreateManagerResource(managerManager));
+		environment.addResource(new LeagueByIdResource(leagueManager));
 	}
 }

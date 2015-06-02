@@ -10,7 +10,7 @@ import org.junit.Test;
 import com.gbleague.models.manager.Manager;
 import com.google.common.base.Optional;
 
-public class FileManagerDAOTest {
+public class FileManagerDAOIntegrationTest {
 	
 	private FileManagerDAO dao;
 	
@@ -44,7 +44,7 @@ public class FileManagerDAOTest {
 				.setUsername("userA");
 
 		dao.createManager(expected);
-		Optional<Manager> optionalResult = dao.getManagerById(1l);
+		Optional<Manager> optionalResult = dao.getById(1l);
 
 		assertTrue(optionalResult.isPresent());
 		assertEquals(expected, optionalResult.get());
