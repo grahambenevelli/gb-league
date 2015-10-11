@@ -1,7 +1,0 @@
-TODO:
-
-Add Managers for business logic
-Add Restful Wrappers
-Add Builder Classes
-Add Hibernate calls to get models
-Add Session calls to all web pages, use annotations for verification

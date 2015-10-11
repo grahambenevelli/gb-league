@@ -7,11 +7,13 @@ import com.gbleague.web.dto.league.LeagueDTO;
 import com.gbleague.web.dto.manager.ManagerDTO;
 import com.google.common.collect.Lists;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * The controller class for calls related to the manager
@@ -41,9 +43,15 @@ public class ManagerController {
 
 	// TODO /manager/{ID} GET
 	// getManagerById
-
-	// TODO /manager/ PUT
-	// createManager
+	
+	@RequestMapping(value="/", method = RequestMethod.PUT)
+	@ResponseBody
+	public ManagerDTO createManager(@RequestBody ManagerDTO json) {
+		System.out.println(json);
+		// Get data from call
+		// Send to buisiness layer
+		return null;
+	}
 
 	// TODO /manager/{ID} POST
 	// updateManager
