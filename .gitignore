@@ -1,0 +1,19 @@
+*.class
+*.iml
+*.log
+/gb-league-api/logs/
+/gb-league-api/target/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+/test-classes
+.classpath
+
+.DS_Store
+.gradle/
+.idea/
+.vagrant/
+
+build/
