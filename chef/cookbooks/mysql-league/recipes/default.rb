@@ -8,4 +8,8 @@
 #
 
 puts "Starting mysql for league"
+
+include_recipe "mysql::client"
+include_recipe "mysql::server"
+
 puts "Finishing mysql for league"
