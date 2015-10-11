@@ -38,7 +38,7 @@ Vagrant.configure("2") do |config|
     end
   
     config.vm.provision :chef_solo do |chef|
-      chef.cookbooks_path = [File.join(chef_repo, "site-cookbooks"), File.join(chef_repo, "cookbooks")]
+      chef.cookbooks_path = File.join(chef_repo, "cookbooks")
       File.join(chef_repo, "cookbooks")
       chef.data_bags_path = File.join(chef_repo, "data_bags")
       chef.roles_path = File.join(chef_repo, "roles")
