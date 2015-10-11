@@ -6,3 +6,6 @@
 #
 # All rights reserved - Do Not Redistribute
 #
+
+puts "Starting mysql for league"
+puts "Finishing mysql for league"

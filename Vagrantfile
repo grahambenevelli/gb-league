@@ -45,7 +45,8 @@ Vagrant.configure("2") do |config|
       chef.provisioning_path = "/tmp/vagrant-chef"
 
       chef.run_list = [
-        "recipe[nginx-league]"
+        "nginx-league",
+        "mysql-league"
       ]
       chef.json = {
         "nginx-league" => {}
